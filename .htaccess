@@ -1,0 +1,12 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+RewriteRule ^pagamento/(.*)$ ./checkout.php?id=$1 [L,NC]
+RewriteRule ^item/(.*)$ ./package.php?id=$1 [L,NC]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Defina o pacote “ea-php70” como a linguagem padrão de programação “PHP”.
+<IfModule mime_module>
+#  AddType application/x-httpd-ea-php70 .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

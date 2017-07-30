@@ -1,0 +1,22 @@
+/* CSS Document */
+.order
+{
+    
+}
+
+.order-skin{
+    margin-left: 70px;
+    margin-right: 25px;
+    width: 250px;
+    height: 350px;
+    float: left;
+}
+
+.order-detail
+{
+    float: left;
+    margin-left: 75px;
+}
+
+.order-transation{
+}

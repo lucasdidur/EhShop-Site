@@ -1,0 +1,355 @@
+body {
+    background: #FAFAFA;
+    margin: 0 0 35px 0;
+}
+
+.navbar .navbar-brand.navbar-logo {
+    padding: 5px;
+    margin-right: 15px;
+}
+
+.navbar .navbar-brand.navbar-logo img {
+    height: 40px;
+}
+
+.col-center {
+    float: none;
+    margin: 0 auto;
+}
+
+.form-btn-padding {
+    padding-top: 10px;
+}
+
+.ckeditor {
+    height: 280px;
+    border: 0;
+    visibility: hidden;
+}
+
+.subaccount-radio {
+    text-align: center;
+    margin: auto auto;
+}
+
+.logo {
+    width: 250px;
+    height: 67px;
+    margin: 0 auto 35px auto;
+}
+
+.container.main {
+    margin-top: 80px;
+}
+
+.container.guest {
+    margin-top: 75px;
+}
+
+.notification-bar {
+    text-align: center;
+    display: none;
+}
+
+.panel-seperator {
+    border-top: 1px solid #dddddd;
+    border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+}
+
+.panel-heading {
+    padding-top: 10px;
+    height: 45px;
+    line-height: 25px;
+}
+
+.panel-footer {
+    height: 55px;
+}
+
+.panel-heading .btn {
+    margin-top: -5px;
+}
+
+.package-image .info {
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 0 0 0;
+}
+
+.package-image .hide-border {
+    margin: auto auto;
+    width: 170px;
+}
+
+.package-image .image {
+    width: 190px;
+    height: 160px;
+    margin: 5px auto 20px auto;
+    border: 1px solid #D6D5D4;
+    background: url(/assets/img/empty.png) no-repeat center;
+}
+
+.package-image .upload-button, .package-image .remove-button {
+    display: none;
+}
+
+.package-commands, .package-commands li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.package-commands .advanced {
+    display: none;
+    padding: 10px;
+}
+
+ul.categories {
+    margin-top: 10px;
+    margin-bottom: -20px;
+}
+
+.categories .link, .categories .link:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.categories .packages tr {
+    background: #FFF;
+    width: 100%;
+}
+
+.categories table {
+    width: 100%;
+}
+
+.categories table th, .categories table td {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.categories table td.empty {
+    font-size: 14px;
+    padding: 10px;
+    color: #8C8C8C;
+}
+
+.categories > li:before, .categories > li:after {
+    content: "";
+    display: table;
+}
+
+.categories > li:after {
+    clear: both;
+}
+
+.categories > li {
+    zoom: 1;
+}
+
+.categories li .subcategories {
+    width: 95%;
+    float: right;
+    padding-bottom: 40px;
+}
+
+.categories .category {
+    border-radius: 3px;
+    border-bottom-right-radius: 0;
+    -moz-border-radius: 3px;
+    -moz-border-bottom-right-radius: 0;
+    -webkit-border-radius: 3px;
+    -webkit-border-bottom-right-radius: 0;
+}
+
+.categories .category, .categories .subcategory {
+    background: #FFF;
+    color: #333333;
+    border: 1px solid #dddddd;
+    border-bottom: 0;
+}
+
+.categories .category thead, .categories .subcategory thead {
+    background-color: #f5f5f5;
+}
+
+.lifetime-notification {
+    margin: 0 10px 35px 10px;
+}
+
+.lifetime-notification a {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.payment-search .input .packages, .payment-search .input .categories, .payment-search .input .coupons, .payment-search .input .statuses, .payment-search .input .gateways, .payment-search .input .variables {
+    display: none;
+}
+
+.gateways .gateway {
+    height: 50px;
+    padding: 10px;
+    line-height: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.gateways .gateway img {
+    width: 48px;
+    height: 32px;
+}
+
+.gateways .name {
+    float: left;
+}
+
+.gateways .image {
+    float: left;
+    padding: 0 15px 0 0;
+}
+
+.gateways-info > .gateway-info {
+    margin: 0 0 15px 0;
+    height: 84px;
+}
+
+.gateways-info > .gateway-info h5 {
+    margin-top: 15px;
+}
+
+.gateways-info > .gateway-info.disabled {
+    opacity: 0.5;
+}
+
+.modules .module {
+    margin-bottom: 15px;
+    height: 50px;
+    padding: 10px;
+    line-height: 28px;
+    font-weight: bold;
+}
+
+.modules-info .module-info h5 {
+    margin-top: 0px;
+}
+
+.footer {
+    font-size: 12px;
+    margin-top: 5px;
+    padding: 20px;
+    color: #8C8C8C;
+    text-align: center;
+}
+
+.scratch {
+    display: none;
+}
+
+.lookup .mc-skin {
+    margin: 25px 0 25px 0;
+    height: 135px;
+}
+
+.lookup .global-rates {
+    padding-top: 5px;
+    min-height: 107px;
+}
+
+.lookup .global-rates p {
+    padding: 0 0 5px;
+    margin-bottom: 0;
+}
+
+.webstore-logo .well {
+    height: 62px;
+    padding: 5px 15px 10px 15px;
+    margin-bottom: 25px;
+}
+
+.webstore-logo .buttons {
+    padding-top: 9px;
+}
+
+.webstore-logo .buttons .btn {
+    margin: 0;
+}
+
+.webstore-logo .image p {
+    font-size: 12px;
+    padding-top: 9px;
+}
+
+.webstore-logo .image {
+    text-align: left;
+    height: 50px;
+}
+
+.webstore-logo .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.webstore-logo .image img {
+    vertical-align: middle;
+    max-height: 50px;
+    max-width: 290px;
+}
+
+.slider-container .slider {
+    margin: 3px 0 0 0;
+    width: 100%;
+}
+
+.secure-info {
+    color: #49AD58;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.payment-method {
+    margin-bottom: 0;
+    height: 25px;
+}
+
+.payment-method .account img {
+    height: 21px;
+    padding-right: 20px;
+}
+
+.payment-method .account {
+    float: left;
+    width: 60%;
+    color: #8C8C8C;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.payment-method .expiry {
+    text-align: right;
+    float: right;
+}
+
+.payment-method .actions {
+    float: left;
+    width: 40%;
+    text-align: right;
+}
+
+.modal-footer {
+    margin-top: 0;
+}
+
+.modal-dialog {
+    padding-top: 5%;
+}
+
+.fa-red {
+    color: red;
+}
+
+.fa-green {
+    color: green;
+}

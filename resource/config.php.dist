@@ -1,0 +1,65 @@
+<?php
+    setlocale(LC_ALL, "pt_BR", "pt_BR.iso-8859-1", "pt_BR.utf-8", "portuguese");
+    date_default_timezone_set("America/Sao_Paulo");
+
+    // Config
+    define ("ACCEPT_UNFERIFIED",            true);
+    define ("ACCEPT_UNFERIFIED_LIMIT",      50);
+    define ("OBJETIVO_ARRECADACAO",         300);
+    define("UPLOADDIR",                     ROOT. "uploaded-files/");
+
+    define ("MODE",                         "remote");
+
+    switch(MODE)
+    {
+        case "local":
+            define ("URL",                          "http://localhost/shop/");
+            define ("DB_SERVER",                    "localhost");
+            define ("DB_SENHA",                     "");
+
+            break;
+
+        case "remote":
+            define ("URL",                          "http://shop.remove.com/");
+            define ("DB_SERVER",                    "localhost");
+            define ("DB_SENHA",                     "");
+            break;
+    }
+
+    define ("API_EMAIL_PAYMENT",            "email@email.com");
+    define ("API_RETURN_URL_COMPLETED",     URL. "checkout_complete.php");
+    define ("API_RETURN_URL",               URL);
+
+    // PayPal
+    define ("API_PAYPAL_SANDBOX",           false);
+
+    define ("API_PAYPAL_USER",              "");
+    define ("API_PAYPAL_PASSWORD",          "");
+    define ("API_PAYPAL_SIGNATURE",         "");
+    define ("API_PAYPAL_CALLBACK",          URL. "resource/modulos/callback/paypal.php");
+
+    // PagSeguro
+    define ("API_PAGSEGURO_SANDBOX",        false);
+    define ("API_PAGSEGURO_SANDBOX_EMAIL",  "");
+    define ("API_PAGSEGURO_SANDBOX_TOKEN",  "");
+
+    define ("API_PAGSEGURO_TOKEN",          "");
+    define ("API_PAGSEGURO_CALLBACK",       URL. "resource/modulos/callback/pagseguro.php");
+
+    // Paymentwall
+    define ("API_PAYMENTWALL_PUBLIC_KEY",   "");
+    define ("API_PAYMENTWALL_PRIVATE_KEY",  "");
+    define ("API_PAYMENTWALL_CALLBACK",     URL. "resource/modulos/callback/paymentwall.php");
+
+
+
+    // Database
+    define ("DB_USUARIO",   "dbuser");
+    define ("DB_NOME",      "dbname");
+    define ("DB_CHARSET",   "utf8");
+
+    $gateways = array();
+
+    $db = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_NOME.";charset=".DB_CHARSET."", DB_USUARIO, DB_SENHA);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
