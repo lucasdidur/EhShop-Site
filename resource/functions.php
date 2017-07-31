@@ -79,7 +79,7 @@ function get_price($oid, $default = false, $quantity = 1)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $package = $db->query('SELECT price FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
 
     $price = $package['price'];
 
@@ -95,7 +95,7 @@ function get_product_name($oid)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $package = $db->query('SELECT name FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid . ' LIMIT 1')->fetch();
     return $package['name'];
 }
 
@@ -103,7 +103,7 @@ function get_nick($oid)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $package = $db->query('SELECT nick FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid . ' LIMIT 1')->fetch();
     return $package['nick'];
 }
 
@@ -369,7 +369,7 @@ function getStatus($id_order)
 {
     global $db;
 
-    $stmt = $db->prepare("SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ?");
+    $stmt = $db->prepare("SELECT status FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ? LIMIT 1");
     $stmt->execute(array($id_order));
 
     $package = $stmt->fetch();
@@ -392,7 +392,7 @@ function getStatusName($status)
         case Status::ACTIVE;
             return "Ativo";
 
-        case Status::WAITING_DESACTIVATION;
+        case Status::WAITNIG_DESACTIVATION;
             return "Aguardando Desativação";
 
         case Status::EXPIRED;
