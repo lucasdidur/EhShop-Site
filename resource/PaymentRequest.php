@@ -48,6 +48,10 @@ class PaymentRequest
 
     function process()
     {
+        // Crash fix
+        if ($this->gateway == null)
+            return false;
+        
         $data = array();
 
         $data['id_order'] = $this->order_id;
