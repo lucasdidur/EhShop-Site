@@ -79,7 +79,7 @@ function get_price($oid, $default = false, $quantity = 1)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $package = $db->query('SELECT price FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
 
     $price = $package['price'];
 
@@ -95,7 +95,7 @@ function get_product_name($oid)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $package = $db->query('SELECT name FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
     return $package['name'];
 }
 
@@ -103,7 +103,7 @@ function get_nick($oid)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $package = $db->query('SELECT nick FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid . '')->fetch();
     return $package['nick'];
 }
 
