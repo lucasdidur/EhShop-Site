@@ -48,6 +48,10 @@ class PaymentRequest
 
     function process()
     {
+        // Check if the Gateway isn't null to avoid internal error
+        if (is_null($this->gateway))
+            return false;
+
         $data = array();
 
         $data['id_order'] = $this->order_id;
