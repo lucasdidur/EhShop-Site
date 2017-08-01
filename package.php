@@ -1,7 +1,7 @@
 <?
     include "loader.php";
 
-    $stmt = $db->prepare('SELECT * FROM `ea_packages` WHERE `id_package` = ?');
+    $stmt = $db->prepare('SELECT name, description FROM `ea_packages` WHERE `id_package` = ? LIMIT 1');
     $stmt->execute(array( $_REQUEST['id']));
 
     $package = $stmt->fetch(PDO::FETCH_ASSOC);
