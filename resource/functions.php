@@ -411,6 +411,26 @@ function getStatusName($status)
     }
 }
 
+/**
+ * Convert a String to a Gateway instance.
+ *
+ * @param $gateway
+ *      String with the name of the instance.
+ *
+ * @return A gateway instance if valid and a null if not.
+ */
+function getGatewayFromString($gateway) {
+    
+    switch ($gateway) {
+        case "pagseguro":
+            return new PagSeguro();
+        case "paypal":
+            return new PayPal();
+    }
+
+    return null;
+}
+
 abstract class Status
 {
     const WAITING_ACTIVATION = 1;
