@@ -14,6 +14,11 @@ if (is_null($id_pedido)) {
 }
 
 $pedido = new Order($id_pedido);
+// Check if Order is valid
+if (!$pedido->isValid()) {
+    exit();
+}
+
 $package = new Package($pedido->getIdPackage());
 $transations = Transation::loadByOrder($pedido->getIdOrder());
 ?>
