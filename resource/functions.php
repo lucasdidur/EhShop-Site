@@ -79,8 +79,10 @@ function get_price($oid, $default = false, $quantity = 1)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
-
+    $stmt = $db->prepare('SELECT price FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ?')
+    $stmt->execute(array($oid));
+    $package = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
     $price = $package['price'];
 
     if ($default)
@@ -95,7 +97,10 @@ function get_product_name($oid)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $stmt = $db->prepare('SELECT name FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ? LIMIT 1')
+    $stmt->execute(array($oid));
+    $package = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     return $package['name'];
 }
 
@@ -103,7 +108,10 @@ function get_nick($oid)
 {
     global $db;
 
-    $package = $db->query('SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ' . $oid)->fetch();
+    $stmt = $db->prepare('SELECT nick FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ? LIMIT 1');
+    $stmt->execute(array($oid));
+    $package = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
     return $package['nick'];
 }
 
@@ -369,7 +377,7 @@ function getStatus($id_order)
 {
     global $db;
 
-    $stmt = $db->prepare("SELECT * FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ?");
+    $stmt = $db->prepare("SELECT status FROM ea_orders eo JOIN ea_packages ep ON eo.id_package = ep.id_package WHERE id_order = ? LIMIT 1");
     $stmt->execute(array($id_order));
 
     $package = $stmt->fetch();
