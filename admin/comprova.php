@@ -20,7 +20,7 @@
 	  	{
 
 		  	addPagamento($_REQUEST['gateway'], $_REQUEST['id_order'], $_REQUEST['id_transacao'], $_REQUEST['value']);
-	      	setToAtive($_REQUEST['id_order']);
+	      		setToAtive($_REQUEST['id_order']);
 		  
 			echo "Pagamento Confirmado";
 		}
