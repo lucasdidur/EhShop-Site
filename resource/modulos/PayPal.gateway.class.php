@@ -90,6 +90,16 @@ class PayPal implements Gateway
     {
         return true;
     }
+
+    /**
+     *  Check if the Gatways as received the payment.
+     *  
+     *  @return If the user as payed then return true otherwise false
+     */
+    public function isPayed($id_transacao) {
+        //TODO: Create the function to validate if the payment is completed
+        return false;
+    }
 }
 
 ?>

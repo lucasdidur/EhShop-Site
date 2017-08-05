@@ -42,8 +42,8 @@
             if (is_null($id_package))
                 return;
 
-            $stmt = $db->prepare("SELECT * FROM ea_packages WHERE id_package = {$id_package}");
-            $stmt->execute();
+            $stmt = $db->prepare("SELECT * FROM ea_packages WHERE id_package = ? LIMIT 1");
+            $stmt->execute(array($id_package));
             $package = $stmt->fetch(PDO::FETCH_ASSOC);
 
             $this->setIdPackage($package['id_package']);
@@ -68,8 +68,8 @@
             $this->setImage($package['image']);
             $this->setActive($package['active']);
 
-            $stmt = $db->prepare("SELECT `id_server` FROM `ea_packages_servers` WHERE `id_package` = {$this->getIdPackage()}");
-            $stmt->execute();
+            $stmt = $db->prepare("SELECT `id_server` FROM `ea_packages_servers` WHERE `id_package` = ?");
+            $stmt->execute(array($this->getIdPackage()));
             $servers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($servers as $server)
@@ -77,8 +77,8 @@
                 $this->addServer($server['id_server']);
             }
 
-            $stmt = $db->prepare("SELECT `id_command` FROM `ea_packages_commands` WHERE `id_package` = {$this->getIdPackage()} ORDER BY `order`");
-            $stmt->execute();
+            $stmt = $db->prepare("SELECT `id_command` FROM `ea_packages_commands` WHERE `id_package` = ? ORDER BY `order`");
+            $stmt->execute(array($this->getIdPackage()));
             $commands = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             foreach ($commands as $command)

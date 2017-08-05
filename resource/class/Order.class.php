@@ -19,6 +19,7 @@ class Order
     var $date_expired;
     
     var $status;
+    private var $isValid = false;
 
     public function __construct($id_order = null)
     {
@@ -27,9 +28,12 @@ class Order
         if (is_null($id_order))
             return;
 
-        $stmt = $db->prepare("SELECT * FROM `ea_orders` WHERE id_order = {$id_order}");
-        $stmt->execute();
+        $stmt = $db->prepare("SELECT * FROM `ea_orders` WHERE id_order = ? LIMIT 1");
+        $stmt->execute(array($id_order));
         $order = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (empty($order))
+            return;
 
         $this->setIdOrder($order['id_order']);
         $this->setIdPackage($order['id_package']);
@@ -42,6 +46,8 @@ class Order
         $this->setDateExpired($order['date_expired']);
 
         $this->setStatus($order['status']);
+
+        $this->isValid = true;
     }
 
     /**
@@ -188,5 +194,15 @@ class Order
         return $this;
     }
     
+    /**
+     *  Check if the Order is valid.
+     *
+     *  @return true if is validm otherwise false
+     */
+    public function isValid()
+    {
+        return $this->valid;
+    }
+
     
 }

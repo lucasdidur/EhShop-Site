@@ -8,11 +8,22 @@
 	
 	if(isset($_REQUEST['send']))
 	{
-		addPagamento($_REQUEST['gateway'], $_REQUEST['id_order'], $_REQUEST['id_transacao'], $_REQUEST['value']);
+      	$gateway = getGatewayFromString($_REQUEST['gateway']);
 
-        setToAtive($_REQUEST['id_order']);
-		
-		echo "Pagamento Confirmado";
+      	// Check if the gateway is invalid
+      	if (is_null($gateway)) {
+        	exit("Invalid gateway!");
+      	}
+
+      	// Check if Gateway has a valid payment
+      	if ($gateway->isPayed($id_transacao))
+	  	{
+
+		  	addPagamento($_REQUEST['gateway'], $_REQUEST['id_order'], $_REQUEST['id_transacao'], $_REQUEST['value']);
+	      		setToAtive($_REQUEST['id_order']);
+		  
+			echo "Pagamento Confirmado";
+		}
 	}
 	
 ?>

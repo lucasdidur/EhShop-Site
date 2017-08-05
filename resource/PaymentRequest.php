@@ -22,16 +22,7 @@ class PaymentRequest
 
     function setGateway($gateway)
     {
-        switch ($gateway)
-        {
-            case "pagseguro":
-                $this->gateway = new PagSeguro();
-                break;
-
-            case "paypal":
-                $this->gateway = new PayPal();
-                break;
-        }
+        $this->gateway = getGatewayFromString($gateway);
     }
 
 

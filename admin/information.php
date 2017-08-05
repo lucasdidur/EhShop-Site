@@ -6,17 +6,19 @@ include "../loader.php";
 $title = "Ehaqui | Bem vindo";
 include ROOT . 'theme/header.php';
 
-if (isset($_REQUEST['send'])) {
-    addPagamento($_REQUEST['gateway'], $_REQUEST['id_order'], $_REQUEST['id_transacao'], $_REQUEST['value']);
-
-    setToAtive($_REQUEST['id_order']);
-
-    echo "<h1>Pagamento Confirmado</h1>";
-}
-
 $id_pedido = $_REQUEST['id_order'];
 
+//Check if has a valid $id
+if (is_null($id_pedido)) {
+    exit();
+}
+
 $pedido = new Order($id_pedido);
+// Check if Order is valid
+if (!$pedido->isValid()) {
+    exit();
+}
+
 $package = new Package($pedido->getIdPackage());
 $transations = Transation::loadByOrder($pedido->getIdOrder());
 ?>
