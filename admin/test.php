@@ -3,7 +3,7 @@
     include "../loader.php";
 
 
-    $db2 = new PDO("mysql:host=ehaqui.com;dbname=ehaqui_shop;charset=" . DB_CHARSET . "", "ehaqui_ehaqui", "hC!@fL,y#kcC");
+    $db2 = new PDO("mysql:host=host;dbname=db_name;charset=" . DB_CHARSET . "", "username", "password");
     $db2->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $package = 3;
